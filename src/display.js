@@ -2,6 +2,7 @@ export const Display = (() => {
   const form = document.querySelector("form");
   const display = document.querySelector("ul.display");
   const message = document.querySelector("p.message");
+  const locationName = document.querySelector("p.location");
 
   let minTempItem = document.createElement("li");
   let minTempItemP = document.createElement("p");
@@ -25,6 +26,7 @@ export const Display = (() => {
     maxTempItemP.textContent = "Maximum : " + maxTemp;
     tempItemP.textContent = "Average: " + temp;
     message.textContent = "";
+    locationName.textContent = result.resolvedAddress;
   }
   function getForm() {
     return form;
