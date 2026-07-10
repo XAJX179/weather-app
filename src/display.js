@@ -55,7 +55,7 @@ export const Display = (() => {
     minTempItemP.textContent = "Minimum : " + minTemp;
     maxTempItemP.textContent = "Maximum : " + maxTemp;
     tempItemP.textContent = "Average: " + temp;
-    message.textContent = "";
+    sendMessage("");
     locationName.textContent = result.resolvedAddress;
     toggleScaleBtn.style.display = "initial";
   }
@@ -64,8 +64,12 @@ export const Display = (() => {
   }
 
   function addLoader() {
-    message.textContent = "Loading...";
+    sendMessage("Loading...");
   }
 
-  return { weatherReport, addLoader, getForm };
+  function sendMessage(str) {
+    message.textContent = str;
+  }
+
+  return { weatherReport, addLoader, getForm, sendMessage };
 })();

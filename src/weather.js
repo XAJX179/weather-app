@@ -8,9 +8,12 @@ ${location}/today?unitGroup=metric&elements=datetime%2Ctemp%2Ctempmax%2Ctempmin%
 &include=current&key=${apiKey}&contentType=json`;
 
     let response = await fetch(url);
-    let data = await response.json();
-
-    return data;
+    if (!response.ok) {
+      throw Error("Could not find.");
+    } else {
+      let data = await response.json();
+      return data;
+    }
   }
 
   return { getData };

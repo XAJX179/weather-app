@@ -36,8 +36,13 @@ Display.getForm().addEventListener("submit", (e) => {
     location = inputValue;
   }
 
-  Weather.getData(location).then((result) => {
-    Display.weatherReport(result);
-  });
+  Weather.getData(location)
+    .then((result) => {
+      Display.weatherReport(result);
+    })
+    .catch((error) => {
+      Display.sendMessage(error.message);
+      return;
+    });
   Display.addLoader();
 });
